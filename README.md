@@ -172,7 +172,7 @@ Muestra el tiempo en segundos que le toma decifrar el corpus $\mathbb D$
 
 
 ```python
-colors2 =[colors[4],colors[3],colors[0],colors[2],colors[]]
+colors2 =[colors[4],colors[3],colors[0],colors[2],colors[1],colors[6],colors[5]]
 sns.barplot(x="CIPHER",y="TIME(SEC)",data=_info_df,palette=colors2)
 ```
 
@@ -195,7 +195,7 @@ Muestra la tasa en megabytes por segundo que le toma a cada cifrador, decifrar e
 
 
 ```python
-sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=_info_df)
+sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=_info_df,palette=colors2)
 ```
 
 
