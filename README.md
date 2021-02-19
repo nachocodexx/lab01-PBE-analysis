@@ -1,3 +1,6 @@
+#
+
+
 ```python
 import pandas as pd
 import numpy as np
@@ -6,6 +9,8 @@ import matplotlib.pyplot as plt
 sns.set_theme(style="ticks", color_codes=True)
 plt.rcParams["figure.figsize"] = (20,10)
 ```
+
+# Funciones de utileria
 
 
 ```python
@@ -16,6 +21,7 @@ def getTasa(time,corpus_size):
     tasa_bytes_secs  = corpus_size/time
     tasa_mb_secs     = corpus_size_mb/time
     return {'BITS/SEC':(corpus_size_bits,tasa_bits_secs),'BYTES/SEC':(corpus_size,tasa_bytes_secs),'MB/SEC':(corpus_size_mb,tasa_mb_secs)}
+
 def getInfo(**kwargs):
     dfa              = kwargs.get('df') 
     time             = dfa.TIME.sum()/1000
@@ -51,156 +57,7 @@ aes_256_sha512 = df.loc[df.CIPHER=='AES'].loc[df.KEY_LENGTH==256].loc[df.KDF=='P
 df.loc[aes_256_sha512.index,'CIPHER']="AES_SHA512"
 aes_256_sha512 = df.loc[df.CIPHER=='AES_SHA512'].loc[df.KEY_LENGTH==256].loc[df.KDF=='PBKDF2WithHmacSHA512']
 infos = list(map(lambda x:getInfo(df=x),(des,desede,aes_128,aes_192,aes_256,aes_256_sha384,aes_256_sha512)))
-aes_256
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FILE_NAME</th>
-      <th>FILE_SIZE</th>
-      <th>TIME</th>
-      <th>KDF</th>
-      <th>CIPHER</th>
-      <th>TRANSFORMATION</th>
-      <th>KEY_LENGTH</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>4704</th>
-      <td>650.txt</td>
-      <td>1048575</td>
-      <td>375</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>4705</th>
-      <td>916.txt</td>
-      <td>1048575</td>
-      <td>113</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>4706</th>
-      <td>276.txt</td>
-      <td>1048575</td>
-      <td>90</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>4707</th>
-      <td>1483.txt</td>
-      <td>1048575</td>
-      <td>69</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>4708</th>
-      <td>1122.txt</td>
-      <td>1048575</td>
-      <td>64</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>5875</th>
-      <td>518.txt</td>
-      <td>1048575</td>
-      <td>44</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>5876</th>
-      <td>115.txt</td>
-      <td>1048575</td>
-      <td>51</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>5877</th>
-      <td>512.txt</td>
-      <td>1048575</td>
-      <td>48</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>5878</th>
-      <td>643.txt</td>
-      <td>1048575</td>
-      <td>51</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>5879</th>
-      <td>699.txt</td>
-      <td>1048575</td>
-      <td>47</td>
-      <td>PBKDF2WithHmacSHA256</td>
-      <td>AES</td>
-      <td>AES/CBC/PKCS5Padding</td>
-      <td>256</td>
-    </tr>
-  </tbody>
-</table>
-<p>1176 rows × 7 columns</p>
-</div>
-
-
 
 # Cipher(Decrypt mode)
 
@@ -213,8 +70,6 @@ _desede  = dff.loc[dff.CIPHER=='DESede']
 _aes_128 = dff.loc[dff.CIPHER=='AES'].loc[dff.KEY_LENGTH==128]
 _aes_192 = dff.loc[dff.CIPHER=='AES'].loc[dff.KEY_LENGTH==192]
 _aes_256 = dff.loc[dff.CIPHER=='AES'].loc[dff.KEY_LENGTH==256].loc[dff.KDF!='PBKDF2WithHmacSHA384'].loc[df.KDF!='PBKDF2WithHmacSHA512']
-
-
 
 # 
 _aes_256_sha384 = dff.loc[df.CIPHER=='AES'].loc[dff.KEY_LENGTH==256].loc[dff.KDF=='PBKDF2WithHmacSHA384']
@@ -359,10 +214,13 @@ info_df
 
 
 
+# Grafica 00
+
+
+Muestra la cantidad de tiempo en segundos que tomo cada uno de los cifrados
+
 
 ```python
-# ciphers  = info_df.CIPHER
-# time_sec = info_df['TIME(SEC)']
 sns.barplot(x="CIPHER",y="TIME(SEC)",data=info_df)
 ```
 
@@ -375,9 +233,13 @@ sns.barplot(x="CIPHER",y="TIME(SEC)",data=info_df)
 
 
     
-![png](README_files/README_8_1.png)
+![png](README_files/README_12_1.png)
     
 
+
+# Grafica 01
+
+Muestra la tasa en bits sobre segundo de cada uno de los cifrados en cifrar el corpus $\mathbb D$
 
 
 ```python
@@ -393,13 +255,16 @@ sns.barplot(x="CIPHER",y="TASA(BITS/SEC)",data=info_df)
 
 
     
-![png](README_files/README_9_1.png)
+![png](README_files/README_15_1.png)
     
 
 
+# Grafica 02
+
+Muestra la tasa en Megabytes sobre segundo de cada uno de los cifrados
+
 
 ```python
-
 sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=info_df)
 ```
 
@@ -412,7 +277,7 @@ sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=info_df)
 
 
     
-![png](README_files/README_10_1.png)
+![png](README_files/README_18_1.png)
     
 
 
@@ -548,6 +413,10 @@ _info_df
 
 
 
+# Grafica 03
+
+Muestra el tiempo en segundos que le toma decifrar el corpus $\mathbb D$
+
 
 ```python
 sns.barplot(x="CIPHER",y="TIME(SEC)",data=_info_df)
@@ -562,9 +431,13 @@ sns.barplot(x="CIPHER",y="TIME(SEC)",data=_info_df)
 
 
     
-![png](README_files/README_13_1.png)
+![png](README_files/README_23_1.png)
     
 
+
+# Grafica 04
+
+Muestra la tasa en megabytes por segundo que le toma a cada cifrador, decifrar el corpus $\mathbb D$
 
 
 ```python
@@ -580,6 +453,6 @@ sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=_info_df)
 
 
     
-![png](README_files/README_14_1.png)
+![png](README_files/README_26_1.png)
     
 
