@@ -97,7 +97,8 @@ Muestra la cantidad de tiempo en segundos que tomo cada uno de los cifrados
 
 
 ```python
-sns.barplot(x="CIPHER",y="TIME(SEC)",data=info_df)
+colors = ['#FF7C00','#1AC938','#E8000B','#8B2BE2','#F14CC1','#FFC400','#00D7FF']
+sns.barplot(x="CIPHER",y="TIME(SEC)",data=info_df,palette=colors)
 ```
 
 
@@ -119,7 +120,7 @@ Muestra la tasa en bits sobre segundo de cada uno de los cifrados en cifrar el c
 
 
 ```python
-sns.barplot(x="CIPHER",y="TASA(BITS/SEC)",data=info_df)
+sns.barplot(x="CIPHER",y="TASA(BITS/SEC)",data=info_df,palette=colors)
 ```
 
 
@@ -141,7 +142,7 @@ Muestra la tasa en Megabytes sobre segundo de cada uno de los cifrados
 
 
 ```python
-sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=info_df)
+sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=info_df,palette=colors)
 ```
 
 
@@ -171,7 +172,8 @@ Muestra el tiempo en segundos que le toma decifrar el corpus $\mathbb D$
 
 
 ```python
-sns.barplot(x="CIPHER",y="TIME(SEC)",data=_info_df)
+colors2 =[colors[4],colors[3],colors[0],colors[2],colors[]]
+sns.barplot(x="CIPHER",y="TIME(SEC)",data=_info_df,palette=colors2)
 ```
 
 
@@ -207,4 +209,16 @@ sns.barplot(x="CIPHER",y="TASA(MB/SEC)",data=_info_df)
     
 ![png](README_files/README_26_1.png)
     
+
+
+
+```python
+sns.color_palette("bright")
+```
+
+
+
+
+<svg  width="550" height="55"><rect x="0" y="0" width="55" height="55" style="fill:#023eff;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="55" y="0" width="55" height="55" style="fill:#ff7c00;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="110" y="0" width="55" height="55" style="fill:#1ac938;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="165" y="0" width="55" height="55" style="fill:#e8000b;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="220" y="0" width="55" height="55" style="fill:#8b2be2;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="275" y="0" width="55" height="55" style="fill:#9f4800;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="330" y="0" width="55" height="55" style="fill:#f14cc1;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="385" y="0" width="55" height="55" style="fill:#a3a3a3;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="440" y="0" width="55" height="55" style="fill:#ffc400;stroke-width:2;stroke:rgb(255,255,255)"/><rect x="495" y="0" width="55" height="55" style="fill:#00d7ff;stroke-width:2;stroke:rgb(255,255,255)"/></svg>
+
 
